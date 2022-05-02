@@ -5,9 +5,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { LanguageCode } from '../constants/languaje-code';
-import type { Constructor } from '../types';
-import type { AbstractDto, AbstractTranslationDto } from './dto/abstract.dto';
+import { LanguageCode } from '../enums/languaje-code';
+import type { Constructor } from '../helpers/types';
+import type {
+  AbstractDto,
+  AbstractTranslationDto,
+} from '../../application/dtos/abstract.dto';
 
 export interface IAbstractEntity<DTO extends AbstractDto, O = never> {
   id: string;

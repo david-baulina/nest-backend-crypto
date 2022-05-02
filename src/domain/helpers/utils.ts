@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import type { Optional } from '../types';
+import type { Optional } from './types';
 
 /**
  * generate hash from password or string

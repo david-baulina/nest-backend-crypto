@@ -1,4 +1,4 @@
-import { Order } from '../../constants/order';
+import { Order } from '../../domain/enums/order';
 import {
   EnumFieldOptional,
   NumberFieldOptional,

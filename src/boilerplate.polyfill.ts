@@ -7,13 +7,13 @@ import type { Driver } from 'typeorm/driver/Driver';
 import { DriverUtils } from 'typeorm/driver/DriverUtils';
 import type { Alias } from 'typeorm/query-builder/Alias';
 
-import type { AbstractEntity } from './common/abstract.entity';
-import type { AbstractDto } from './common/dto/abstract.dto';
-import { PageDto } from './common/dto/page.dto';
-import { PageMetaDto } from './common/dto/page-meta.dto';
-import type { PageOptionsDto } from './common/dto/page-options.dto';
+import type { AbstractEntity } from './domain/entities/abstract.entity';
+import type { AbstractDto } from './application/dtos/abstract.dto';
+import { PageDto } from './application/dtos/page.dto';
+import { PageMetaDto } from './application/dtos/page-meta.dto';
+import type { PageOptionsDto } from './application/dtos/page-options.dto';
 import { VIRTUAL_COLUMN_KEY } from './decorators/virtual-column.decorators';
-import type { KeyOfType } from './types';
+import type { KeyOfType } from './domain/helpers/types';
 
 function groupRows<T>(
   rawResults: T[],

@@ -27,7 +27,7 @@ import {
 } from 'class-validator';
 import _ from 'lodash';
 
-import { supportedLanguageCount } from '../constants/languaje-code';
+import { supportedLanguageCount } from '../domain/enums/languaje-code';
 import { ApiEnumProperty, ApiUUIDProperty } from './property.decorators';
 import {
   PhoneNumberSerializer,
