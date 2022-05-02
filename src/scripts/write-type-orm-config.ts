@@ -1,4 +1,4 @@
-import { configService } from '../shared/services/api-config.service';
+import { configService } from '../domain/services/api-config.service';
 import fs = require('fs');
 
 fs.writeFileSync(
