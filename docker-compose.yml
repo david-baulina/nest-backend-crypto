@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: crypto-api
+    image: nestjs/cli
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: yarn start:debug
+    ports:
+      - '$PORT:$PORT'
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - nesjs-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: 'GMT'
+      PGTZ: 'GMT'
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    networks:
+      - postgres
+    volumes:
+      - /data/postgres:/data/postgres
+      - postgres
+    restart: always
+
+  pgadmin:
+    links:
+      - postgres:postgres
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - '8080:80'
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+    volumes:
+      - /data/pgadmin:/root/.pgadmin
+networks:
+  nesjs-network:
+  postgres:
