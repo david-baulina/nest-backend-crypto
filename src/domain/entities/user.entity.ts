@@ -1,11 +1,13 @@
+import { UserDto } from 'src/modules/user/dto/userDto';
 import {
   PrimaryGeneratedColumn,
   Column,
   UpdateDateColumn,
   CreateDateColumn,
 } from 'typeorm';
+import { AbstractEntity } from './abstract.entity';
 
-export abstract class UserEntity {
+export abstract class UserEntity extends AbstractEntity<UserDto>{
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
